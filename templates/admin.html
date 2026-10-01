@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+
+<style>
+
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:#181818;
+    padding:20px;
+    margin:10px;
+    border-radius:10px;
+    width:250px;
+    display:inline-block;
+    text-align:center;
+}
+
+h1{
+    color:#1DB954;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>📊 Admin Analytics</h1>
+
+<div class="card">
+<h2>{{ total_users }}</h2>
+<p>Total Users</p>
+</div>
+
+<div class="card">
+<h2>{{ total_favorites }}</h2>
+<p>Favorites</p>
+</div>
+
+<div class="card">
+<h2>{{ total_playlists }}</h2>
+<p>Playlists</p>
+</div>
+
+<div class="card">
+<h2>{{ total_searches }}</h2>
+<p>Searches</p>
+</div>
+
+</div>
+
+</body>
+</html>

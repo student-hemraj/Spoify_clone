@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Ratings</title>
+</head>
+<body>
+
+<h1>⭐ My Song Ratings</h1>
+
+{% for song in songs %}
+
+<h3>{{ song[0] }}</h3>
+<p>Rating: {{ song[1] }}/5</p>
+
+<hr>
+
+{% endfor %}
+
+</body>
+</html>

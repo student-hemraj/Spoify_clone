@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analytics</title>
+
+<style>
+body{
+    background:#121212;
+    color:white;
+    text-align:center;
+    font-family:Arial;
+}
+img{
+    margin-top:20px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>📈 Music Analytics</h1>
+
+<img src="{{ url_for('static',
+filename='chart.png') }}"
+width="800">
+
+<br><br>
+
+<a href="/dashboard">
+Back To Dashboard
+</a>
+
+</body>
+</html>

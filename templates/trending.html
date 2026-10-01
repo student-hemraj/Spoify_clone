@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trending Songs</title>
+</head>
+<body>
+
+<h1>🔥 Trending Songs</h1>
+
+{% for song in songs %}
+
+<div>
+
+<img src="{{ song.artworkUrl100 }}">
+
+<h3>{{ song.trackName }}</h3>
+
+<p>{{ song.artistName }}</p>
+
+{% if song.previewUrl %}
+<audio controls>
+<source src="{{ song.previewUrl }}">
+</audio>
+{% endif %}
+
+<hr>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

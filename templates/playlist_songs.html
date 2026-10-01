@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Playlist Songs</title>
+</head>
+<body>
+
+<h1>{{ playlist_name }}</h1>
+
+{% for song in songs %}
+
+<h3>{{ song[0] }}</h3>
+<p>{{ song[1] }}</p>
+
+<hr>
+
+{% endfor %}
+
+<a href="/playlists">Back</a>
+
+</body>
+</html>

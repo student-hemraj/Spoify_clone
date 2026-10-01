@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Spotify Dashboard</title>
+
+<style>
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial;
+}
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#000;
+    position:fixed;
+    padding:20px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    margin:15px 0;
+}
+
+.main{
+    margin-left:250px;
+    padding:20px;
+}
+
+.card{
+    background:#181818;
+    padding:20px;
+    border-radius:10px;
+    width:250px;
+    margin:10px;
+    display:inline-block;
+}
+</style>
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2>🎵 Spotify</h2>
+
+<a href="/search">🔍 Search</a>
+<a href="/favorites">❤️ Favorites</a>
+<a href="/playlists">🎵 Playlists</a>
+<a href="/history">🕒 History</a>
+<a href="/profile">👤 Profile</a>
+<a href="/logout">🚪 Logout</a>
+
+</div>
+
+<div class="main">
+
+<h1>Welcome {{ username }}</h1>
+
+<div class="card">
+<h2>{{ favorite_count }}</h2>
+<p>Favorite Songs</p>
+</div>
+
+<div class="card">
+<h2>{{ playlist_count }}</h2>
+<p>Playlists</p>
+</div>
+
+<a href="/recently_played">🕒 Recently Played</a>
+
+<a href="/admin">📊 Admin</a>
+
+<a href="/ratings">⭐ Ratings</a>
+
+<a href="/reviews">💬 Reviews</a>
+
+<a href="/analytics">
+📈 Analytics
+</a>
+
+<a href="/artist_search">
+🎤 Artist Search
+</a>
+
+<a href="/liked_songs">
+❤️ Liked Songs
+</a>
+
+<a href="/notifications">
+🔔 Notifications
+</a>
+</div>
+
+</body>
+</html>

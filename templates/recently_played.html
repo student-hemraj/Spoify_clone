@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Recently Played</title>
+</head>
+<body>
+
+<h1>🕒 Recently Played</h1>
+
+{% for song in songs %}
+
+<h3>{{ song[0] }}</h3>
+<p>{{ song[1] }}</p>
+
+<hr>
+
+{% endfor %}
+
+<a href="/dashboard">Back</a>
+
+</body>
+</html>

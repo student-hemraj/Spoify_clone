@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Artist Search</title>
+
+<style>
+
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial;
+    padding:20px;
+}
+
+.container{
+    width:800px;
+    margin:auto;
+}
+
+.card{
+    background:#181818;
+    padding:15px;
+    margin:15px 0;
+    border-radius:10px;
+}
+
+input{
+    padding:10px;
+    width:300px;
+}
+
+button{
+    padding:10px;
+    background:#1DB954;
+    color:white;
+    border:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎤 Search Artists</h1>
+
+<form method="POST">
+
+<input type="text"
+       name="artist"
+       placeholder="Artist Name"
+       required>
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+<hr>
+
+{% for artist in artists %}
+
+<div class="card">
+
+<h3>{{ artist.artistName }}</h3>
+
+<p>Artist ID: {{ artist.artistId }}</p>
+
+</div>
+
+{% endfor %}
+
+<div class="card">
+
+<a href="/artist/{{ artist.artistName }}"
+style="color:#1DB954;text-decoration:none;">
+
+<h3>{{ artist.artistName }}</h3>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

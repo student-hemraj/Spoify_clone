@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Clone - Search</title>
+
+    <style>
+
+        body{
+            background:#121212;
+            color:white;
+            font-family:Arial,sans-serif;
+            margin:0;
+            padding:20px;
+        }
+
+        h1{
+            color:#1DB954;
+            text-align:center;
+        }
+
+        .search-box{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        input[type="text"]{
+            width:300px;
+            padding:10px;
+            border:none;
+            border-radius:5px;
+        }
+
+        button{
+            padding:10px 15px;
+            background:#1DB954;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .song-card{
+            background:#181818;
+            padding:15px;
+            margin:15px auto;
+            width:700px;
+            border-radius:10px;
+        }
+
+        .song-card img{
+            border-radius:10px;
+        }
+
+        a{
+            text-decoration:none;
+            color:#1DB954;
+            font-weight:bold;
+        }
+
+        select{
+            padding:8px;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>🎵 Spotify Clone</h1>
+
+<div class="search-box">
+
+<form method="POST">
+
+    <input
+        type="text"
+        name="song"
+        placeholder="Search Song..."
+        required>
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<br>
+
+<a href="/dashboard">🏠 Dashboard</a> |
+<a href="/favorites">❤️ Favorites</a> |
+<a href="/playlists">🎵 Playlists</a> |
+<a href="/history">🕒 History</a>
+
+</div>
+
+{% for song in songs %}
+
+<div class="song-card">
+
+    {% if song.artworkUrl100 %}
+    <img src="{{ song.artworkUrl100 }}" width="120">
+    {% endif %}
+
+    <h3>{{ song.trackName }}</h3>
+
+    <p>🎤 {{ song.artistName }}</p>
+
+    <p>💿 {{ song.collectionName }}</p>
+
+    {% if song.previewUrl %}
+    <audio controls preload="none">
+        <source src="{{ song.previewUrl }}" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+    <p>{{ song.previewUrl }}</p>
+    {% endif %}
+
+    <br><br>
+
+    <a href="/add_favorite?song={{song.trackName}}&artist={{song.artistName}}">
+        ❤️ Add To Favorites
+    </a>
+
+    <br><br>
+
+    <form action="/add_to_playlist" method="POST">
+
+        <input
+            type="hidden"
+            name="song_name"
+            value="{{ song.trackName }}">
+
+        <input
+            type="hidden"
+            name="artist"
+            value="{{ song.artistName }}">
+
+        <select name="playlist_name" required>
+
+            {% for p in playlists %}
+            <option value="{{ p[0] }}">
+                {{ p[0] }}
+            </option>
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">
+            🎵 Add To Playlist
+        </button>
+
+    </form>
+
+<form action="/play_song" method="POST">
+
+    <input type="hidden"
+           name="song_name"
+           value="{{ song.trackName }}">
+
+    <input type="hidden"
+           name="artist"
+           value="{{ song.artistName }}">
+
+    <button type="submit">
+        ▶ Play Song
+    </button>
+
+</form>
+
+
+<form action="/rate_song" method="POST">
+
+    <input type="hidden"
+           name="song_name"
+           value="{{ song.trackName }}">
+
+    <select name="rating">
+
+        <option value="1">⭐ 1</option>
+        <option value="2">⭐⭐ 2</option>
+        <option value="3">⭐⭐⭐ 3</option>
+        <option value="4">⭐⭐⭐⭐ 4</option>
+        <option value="5">⭐⭐⭐⭐⭐ 5</option>
+
+    </select>
+
+    <button type="submit">
+        Rate Song
+    </button>
+
+</form>
+
+<form action="/add_review" method="POST">
+
+    <input type="hidden"
+           name="song_name"
+           value="{{ song.trackName }}">
+
+    <input type="text"
+           name="review"
+           placeholder="Write a review"
+           required>
+
+    <button type="submit">
+        💬 Add Review
+    </button>
+
+</form>
+
+<a href="/lyrics?song={{song.trackName}}&artist={{song.artistName}}">
+    🎤 View Lyrics
+</a>
+
+<form action="/like_song" method="POST">
+
+    <input type="hidden"
+           name="song_name"
+           value="{{ song.trackName }}">
+
+    <button type="submit">
+        ❤️ Like Song
+    </button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

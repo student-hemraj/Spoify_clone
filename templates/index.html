@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Search App</title>
+</head>
+<body>
+
+<h1>🎵 Music Search App</h1>
+
+<form method="POST">
+    <input type="text" name="song" placeholder="Enter song name">
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{% for song in songs %}
+<div>
+    <h3>{{ song.trackName }}</h3>
+    <p>Artist: {{ song.artistName }}</p>
+
+    {% if song.previewUrl %}
+    <audio controls>
+        <source src="{{ song.previewUrl }}">
+    </audio>
+    {% endif %}
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

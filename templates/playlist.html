@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Playlists</title>
+</head>
+<body>
+
+<h1>🎵 My Playlists</h1>
+
+<a href="/create_playlist">
+Create New Playlist
+</a>
+
+<hr>
+
+{% for p in playlists %}
+
+<a href="/playlist/{{ p[0] }}">
+    {{ p[0] }}
+</a>
+
+<a href="/download_playlist/{{ p[0] }}">
+    📄 Download PDF
+</a>
+
+{% endfor %}
+
+</body>
+</html>

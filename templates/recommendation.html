@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Recommendations</title>
+
+<style>
+
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial;
+}
+
+.song-card{
+    background:#181818;
+    width:700px;
+    margin:20px auto;
+    padding:15px;
+    border-radius:10px;
+}
+
+img{
+    border-radius:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1 align="center">
+🎯 Recommended Songs
+</h1>
+
+{% for song in songs %}
+
+<div class="song-card">
+
+<img src="{{ song.artworkUrl100 }}">
+
+<h3>{{ song.trackName }}</h3>
+
+<p>{{ song.artistName }}</p>
+
+{% if song.previewUrl %}
+<audio controls>
+<source src="{{ song.previewUrl }}">
+</audio>
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

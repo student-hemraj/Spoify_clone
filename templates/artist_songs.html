@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ artist_name }}</title>
+
+<style>
+
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial;
+}
+
+.container{
+    width:900px;
+    margin:auto;
+}
+
+.song-card{
+    background:#181818;
+    padding:15px;
+    margin:15px 0;
+    border-radius:10px;
+}
+
+img{
+    border-radius:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎤 {{ artist_name }}</h1>
+
+{% for song in songs %}
+
+<div class="song-card">
+
+{% if song.artworkUrl100 %}
+<img src="{{ song.artworkUrl100 }}" width="100">
+{% endif %}
+
+<h3>{{ song.trackName }}</h3>
+
+<p>{{ song.collectionName }}</p>
+
+{% if song.previewUrl %}
+<audio controls>
+    <source src="{{ song.previewUrl }}">
+</audio>
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
